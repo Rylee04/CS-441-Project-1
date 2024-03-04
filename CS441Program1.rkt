@@ -42,7 +42,6 @@
     [else (error "Invalid token" str)]))
 
 ;; Define parsing functions for each non-terminal in the grammar
-
 (define (parse-program tokens)
   (match tokens
     [(list (list line ...) EOF)
@@ -178,8 +177,3 @@
           [(string? result) (printf "Syntax error: ~a\n" result)]
           [(= (detect-mismatched-parentheses (port->string (current-input-port))) 0)
            (printf "Accept\n")]
-          [else (printf "Syntax error: Mismatched parentheses\n")])))))
-
-
-
-;; Example usage: (parse-file "input.txt")
