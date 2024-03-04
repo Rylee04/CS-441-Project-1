@@ -167,7 +167,7 @@
       [(char=? (car chars) #\)) (loop (cdr chars) (- open-parens 1))]
       [else (loop (cdr chars) open-parens)])))
 
-(define (parse-file filename)
+(define (parse filename)
   (with-input-from-file filename
     (lambda ()
       (define tokens (port->lines (current-input-port)))
